@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("./photo-1553095066-5014bc7b7f2d.jfif");
+}
+.container{
+    max-width: 500px;
+}
+.btn, .btn:hover{
+    background: #131b41;
+    color: #fff;
+}
+.displayResult{
+    border: 1px solid black;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
