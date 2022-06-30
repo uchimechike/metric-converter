@@ -1,8 +1,8 @@
 const form =  document.querySelector(".input");
-const buttons = document.querySelectorAll(".btn");
-const cardText = document.querySelectorAll(".card-text");
 const cardTitle = document.querySelectorAll(".card-title");
-
+const results = document.querySelectorAll(".result");
+const buttonConvert = document.querySelector(".convert");
+const butttonClear = document.querySelector(".clear");
 
 //functions to calculate all needed
 function MetersToFeet(value) {
@@ -46,33 +46,37 @@ function DisplayCalc(){
     ];
 
     //create an array of values to be dynamically injected
-    cardText.forEach((text, index) => {
+    results.forEach((result, index) => {
         const arr = cardTitle[index].innerHTML.split("(")[1].split(")")[0].split("/");
-        const generateHtml = `${value} ${arr[0]} =  ${answersFucntion[index]} ${arr[1]} <br> ${value} ${arr[1]} =  ${answersFucntion[index]} ${arr[0]} `;
-        text.innerHTML = generateHtml;
-    })
+        const generateHtml = `<p>${value} ${arr[0]} =  ${answersFucntion[index]} ${arr[1]} <br> ${value} ${arr[1]} =  ${answersFucntion[index+1]} ${arr[0]}</p>`;
+        result.classList.remove("d-none");
+        result.innerHTML = generateHtml;
+    });
 
     
-}
+
+    
+};
 
 // form event listeners
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-
     DisplayCalc();
-
+    scrollTo(0,400)
     form.reset();
     
+});
+
+//adding event listeners to convert button
+buttonConvert.addEventListener("click", (e) => {
+    e.preventDefault();
+    DisplayCalc();
+    scrollTo(0,400)
+    form.reset();
 })
-//buttons event listeners
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        if(button.classList.contains("convert")){
-            DisplayCalc();
+//adding event listener to clear button
 
-        }else{
-            window.location.reload();
-        }
-    })
+butttonClear.addEventListener("click", () => {
+    window.location.reload();
 })

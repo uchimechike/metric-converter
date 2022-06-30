@@ -5,6 +5,9 @@
 }
 body{
     background-image: url("./photo-1553095066-5014bc7b7f2d.jfif");
+    background-position: center;
+    background-size: cover;
+    
 }
 .container{
     max-width: 500px;
